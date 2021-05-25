@@ -92,7 +92,7 @@ with open('metadata.csv') as f_in:
 
 ### `metadata.csv` overview
 
-It is recommended to use `metadata.csv` as the starting point.  This file is comma-separated with the following columns:
+This file is comma-separated with the following columns:
 
 - `uid`:  A `str`-valued field that assigns a unique identifier to each CORD-19 paper.  This is not necessariy unique per row, which is explained in the FAQs.
 - `sha`:  A `List[str]`-valued field that is the SHA1 of all PDFs associated with the CORD-19 paper.  Most papers will have either zero or one value here (since we either have a PDF or we don't), but some papers will have multiple.  For example, the main paper might have supplemental information saved in a separate PDF.  Or we might have two separate PDF copies of the same paper.  If multiple PDFs exist, their SHA1 will be semicolon-separated (e.g. `'4eb6e165ee705e2ae2a24ed2d4e67da42831ff4a; d4f0247db5e916c20eae3f6d772e8572eb828236'`)
@@ -123,9 +123,6 @@ They are the same paper, but sent from different sources. Different rows might h
 #### What should we do if both PDF and PMC JSONs exist?  Or if there are multiple PDF JSONs?
 These are different attempts/views to represent the same paper/document.  Some are going to be higher quality than others.  Treat these are separate representations of the same document – you can choose to use one, both, neither (i.e. just use the metadata fields).  On average, the PMC JSONs are cleaner than the PDF JSONs but that’s not necessarily true. 
 
-
-
-***Submission Instructions*** : Follow the same instructions as for the MPs -- create a private copy of this repo and add a webhook to connect to LiveDataLab. Please add a  file named `predictions.txt` containing the predicted relevance scores on the test queries. Please submit The file should be in the same format as train/qrels.txt, i.e `topic/query_id doc_uid relevance_score`. You should submit the scores for the top 1000 documents per query.
 
 References
 
